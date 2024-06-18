@@ -1,0 +1,14 @@
+<launch>
+	<include file="$(find mir_gazebo)/launch/mir_maze_world.launch"> </include>
+	<include file="$(find rm_mir_cleaner)/launch/move_base_clean.launch"> </include>
+	<include file="$(find mir_navigation)/launch/amcl.launch"> </include>
+	<include file="$(find rm_mir_cleaner)/launch/start_map.launch">
+		<arg name="map_file" value="$(find rm_mir_cleaner)/maps/newmap.yaml"/>
+	</include>
+	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find rm_mir_cleaner)/launch/rviz/a2_default.rviz"/>
+	<!-- include file="$(find path_coverage)/launch/path_coverage.launch"> </include -->
+	<!-- node pkg="rm_mir_cleaner" type="rm_cleaner" name="rm_cleaner"/ -->
+</launch>
+
+
+
